@@ -2,7 +2,7 @@
 
 ## The Motivation for Attention
 ### The Challenge of Long-Term Dependencies
-Language models must understand the relationships between words in a sequence to derive meaning. Simple word-by-word translation or processing fails because it lacks contextual understanding and grammar alignment.
+Language models must understand the relationships between words in a sequence to derive meaning. **Simple word-by-word translation or processing fails** because it lacks contextual understanding and grammar alignment.
 
 Consider the sentence: *"The cat that was sitting on the mat which was next to the dog jumped."*
 
