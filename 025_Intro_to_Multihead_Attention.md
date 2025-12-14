@@ -33,7 +33,7 @@ Understanding matrix dimensions is crucial for implementation.
         * Input Dimension ($d_{in}$): 3
         * Output Dimension per head ($d_{out}$): 2
         * Number of Heads: 2
-        * **Final Context Vector Shape:** $2 \times 6 \times 4$ (where 4 is derived from $2 \text{ (heads)} \times 2 \text{ (d\_out)}$).
+        * **Final Context Vector Shape:** $2 \times 6 \times 4$
 
 ## Summary
 * **Foundation:** Multi-head attention extends causal attention by running multiple independent attention mechanisms in parallel.
