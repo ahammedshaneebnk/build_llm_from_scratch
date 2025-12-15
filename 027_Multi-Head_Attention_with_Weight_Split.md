@@ -50,6 +50,9 @@ The logical flow corresponds directly to tensor operations in code (e.g., PyTorc
 ## Summary
 * **Efficiency:** Weight splits reduce the number of required matrix multiplications from one per head to one per component (Query, Key, Value), regardless of the number of heads.
 * **Dimension Logic:** The output dimension ($D_{out}$) is the product of the number of heads and the individual head dimension ($D_{head}$).
-* **Process Flow:** The method follows a sequence of Linear Projection $\rightarrow$ Reshape/Split $\rightarrow$ Transpose $\rightarrow$ Attention Calculation $\rightarrow$ Transpose Back $\rightarrow$ Flatten.
+* **Dimensions during the Process:**
+1. (B x T x Din) * (Din x Dout) -> (B x T x Dout) -> (B x T x Head x Dhead) -> (B x Head x T x Dhead)
+2. (B x Head x T x Dhead) * (B x Head x Dhead x T) -> (B x Head x T x T);
+3. (B x Head x T x T) * (B x Head x T x Dhead) -> (B x Head x T x Dhead) -> (B x T x Head x Dhead) -> (B x T x Dout)
 * **Output Consistency:** The final context vector restores the original dimensionality ($B, T, D_{out}$), effectively concatenating the insights from all attention heads into a single enriched representation for each token.
 * **Scalability:** This architecture is the standard foundation for modern Large Language Models (like GPT-3), scaling efficiently to dozens or hundreds of attention heads.
